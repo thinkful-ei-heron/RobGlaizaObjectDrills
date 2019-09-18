@@ -11,10 +11,12 @@ const obj = {
 //console.log(obj);
 
 //Update Object
-
+function updateObject(obj) {
     obj.foo = 'foo';
     obj.bar = 'bar';
     obj.izz = 'bizz';
     obj.bang = 'bang';
+    return obj
+}
 
 console.log(obj);
