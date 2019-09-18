@@ -19,7 +19,7 @@
 //  makeStudentsReports(testData);
 
 //Enroll in summer school
-const studentData = [
+/* const studentData = [
   {
     name: 'Tim',
     status: 'Current student',
@@ -49,6 +49,29 @@ function enrollInSummerSchool(students) {
   }
   //console.log(arr);
   return arr;
-}
+} 
 
-enrollInSummerSchool(studentData);
+enrollInSummerSchool(studentData);*/
+
+
+
+function findById(items, idNum) {
+    // your code here
+  }
+
+// Find by id
+// you can pass in `scratchData` to test out `findByid`
+// your function
+const scratchData = [
+    { id: 22, foo: 'bar' },
+    { id: 28, foo: 'bizz' },
+    { id: 19, foo: 'bazz' },
+  ];
+  
+  function findById(items, idNum) {
+  return items.find(i => i.id === idNum);
+  
+  
+  }
+
+  findById(scratchData, 2);
