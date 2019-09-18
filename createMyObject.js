@@ -8,4 +8,13 @@ const obj = {
     }
 };
 
+//console.log(obj);
+
+//Update Object
+
+    obj.foo = 'foo';
+    obj.bar = 'bar';
+    obj.izz = 'bizz';
+    obj.bang = 'bang';
+
 console.log(obj);
