@@ -27,25 +27,53 @@
 // console.log(result2);
 
 //3 Arrays in Objects
-const meal = {
-    meals:['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
-};
+// const meal = {
+//     meals:['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
+// };
 
-console.log(meal.meals[3]);
+// console.log(meal.meals[3]);
 
 
-//#4 Arrays of objects
+// //#4 Arrays of objects
+
+// let obj = [
+//     {
+//     name: 'Rob',
+//     jobTitle: 'Software Engineer'
+// }, {
+//     name: 'Will',
+//     jobTitle2: 'Teacher'
+// }, {
+//     name: 'John',
+//     jobTitle: 'Programmer'
+// }
+// ];
+
+// //let superObj = {obj1, obj2, obj3};
+// let arr = [];
+
+// for (let i in obj) {
+//     arr.push(obj[i]);
+// }
+
+// console.log(...obj);
+
+
+//#5
 
 let obj = [
     {
     name: 'Rob',
-    jobTitle: 'Software Engineer'
+    jobTitle: 'Founder',
+    
 }, {
     name: 'Will',
-    jobTitle2: 'Teacher'
+    jobTitle: 'Teacher',
+    boss: 'Rob'
 }, {
     name: 'John',
-    jobTitle: 'Programmer'
+    jobTitle: 'Programmer',
+    boss: 'Rob'
 }
 ];
 
@@ -53,10 +81,13 @@ let obj = [
 let arr = [];
 
 for (let i in obj) {
+    
+    if(obj[i].boss === 'Rob') {
+        console.log(`${obj[i].jobTitle} ${obj[i].name} reports to ${obj[i].boss}`);
+    } else {
+        console.log(`${obj[i].jobTitle} ${obj[i].name} doesn't report to anybody`);
+    }
     arr.push(obj[i]);
 }
 
 console.log(...obj);
-
-
-
