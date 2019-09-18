@@ -8,3 +8,20 @@ const loaf = {
 };
 const result = loaf.hydration()
 console.log(result);
+
+//#2
+
+let result2 = "";
+const myObject = {
+    foo: 2,
+    bar: 4,
+    fum: 6,
+    quux: 8,
+    spam: 10
+}
+
+for (let val in myObject) {
+    result2 += myObject[val];
+}
+
+console.log(result2);
