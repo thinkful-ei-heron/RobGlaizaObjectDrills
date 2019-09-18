@@ -32,3 +32,31 @@ const meal = {
 };
 
 console.log(meal.meals[3]);
+
+
+//#4 Arrays of objects
+
+let obj = [
+    {
+    name: 'Rob',
+    jobTitle: 'Software Engineer'
+}, {
+    name: 'Will',
+    jobTitle2: 'Teacher'
+}, {
+    name: 'John',
+    jobTitle: 'Programmer'
+}
+];
+
+//let superObj = {obj1, obj2, obj3};
+let arr = [];
+
+for (let i in obj) {
+    arr.push(obj[i]);
+}
+
+console.log(...obj);
+
+
+
