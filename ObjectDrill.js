@@ -1,62 +1,62 @@
-// //#1
-// const loaf = {
-//     flour: 300,
-//     water: 210,
-//     hydration: function() {
-//         return (this.water / this.flour) * 100;
-//     }
-// };
-// const result = loaf.hydration()
-// console.log(result);
+//#1
+const loaf = {
+    flour: 300,
+    water: 210,
+    hydration: function() {
+        return (this.water / this.flour) * 100;
+    }
+};
+const result = loaf.hydration()
+console.log(result);
 
-// //#2
+//#2
 
-// let result2 = "";
-// const myObject = {
-//     foo: 2,
-//     bar: 4,
-//     fum: 6,
-//     quux: 8,
-//     spam: 10
-// }
+let result2 = "";
+const myObject = {
+    foo: 2,
+    bar: 4,
+    fum: 6,
+    quux: 8,
+    spam: 10
+}
 
-// for (let val in myObject) {
-//     result2 += myObject[val];
-// }
+for (let val in myObject) {
+    result2 += myObject[val];
+}
 
-// console.log(result2);
+console.log(result2);
 
-//3 Arrays in Objects
-// const meal = {
-//     meals:['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
-// };
+//#3 Arrays in Objects
+const meal = {
+    meals:['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
+};
 
-// console.log(meal.meals[3]);
+console.log(meal.meals[3]);
 
 
-// //#4 Arrays of objects
+//#4 Arrays of objects
 
-// let obj = [
-//     {
-//     name: 'Rob',
-//     jobTitle: 'Software Engineer'
-// }, {
-//     name: 'Will',
-//     jobTitle2: 'Teacher'
-// }, {
-//     name: 'John',
-//     jobTitle: 'Programmer'
-// }
-// ];
+let obj = [
+    {
+    name: 'Rob',
+    jobTitle: 'Software Engineer'
+}, {
+    name: 'Will',
+    jobTitle2: 'Teacher'
+}, {
+    name: 'John',
+    jobTitle: 'Programmer'
+}
+];
 
-// //let superObj = {obj1, obj2, obj3};
-// let arr = [];
+//let superObj = {obj1, obj2, obj3};
+let arr = [];
 
-// for (let i in obj) {
-//     arr.push(obj[i]);
-// }
+for (let i in obj) {
+    arr.push(obj[i]);
+}
 
-// console.log(...obj);
+console.log(...obj);
 
 
 //#5
@@ -91,3 +91,76 @@ for (let i in obj) {
 }
 
 console.log(...obj);
+
+//#7 Factory functions with LOTR
+function createCharacter(name, nickName, race, origin, attack, defense, weapon) {
+    return {
+      name,
+      nickName,
+      race,
+      origin,
+      attack,
+      defense,
+      describe() {
+        console.log(`${this.name} is a ${this.race} from ${this.origin}`);
+      },
+      evaluateFight(character) {
+        let yourDamage = character.attack - this.defense;
+        let opponentDamage = this.attack - character.defense;
+  
+        if(character.defense > this.attack) {
+          console.log(`Your oppenent takes 0 damage and you receive ${yourDamage} damage.`);
+        }else if (this.defense > character.attack){
+          console.log(`Your opponent takes ${opponentDamage} damage and you receive 0 damage.`);
+        }else {
+          console.log(`Your opponent takes ${opponentDamage} damage and you receive ${yourDamage}.`);
+        }
+      },
+      weapon
+    }
+  }
+  
+  //Array characters -> called in evaluateFight
+  let characters = [
+  createCharacter('Gandalf the White','gandalf', 'Wizard', 'Middle Earth', 10, 6, 'wizard staff'), 
+  createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1, 'the Ring'),
+  createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2, 'String and Borrow Blade'),
+  createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8, 'Anduril'),
+  createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm', 8, 5, 'Handhafang')
+  ];
+  
+  //New Character
+  const newCharacter = characters.push(createCharacter('Arwin Unomill', 'Arwin', 'Half-Elf', 'Rivendell', 7, 3));
+  console.log(newCharacter);
+
+  //Using find()
+  let search = characters.find(function(item) {
+    if (item.nickName === 'aragorn'){
+       //console.log(item.describe());
+       return item.describe(); //calling describe method of aragorn
+    }
+  });
+  //console.log(search);
+  
+  //Using filter Hobbit
+  let filterHobbit = characters.filter(function(item) {
+    if (item.race === 'Hobbit'){
+       //console.log(item);
+       return item; 
+    }
+  });
+  //console.log(...filterHobbit);
+  
+  //Using filter Attack
+  let filterAttack = characters.filter(function(item) {
+    if (item.attack > 5 ){
+       return item; 
+    }
+  });
+  //console.log(...filterAttack);
+  
+  characters.map( item => item.describe = function() {
+    console.log(`${item.name} is a ${item.race} from ${item.origin} who uses a ${item.weapon}.`);
+  });
+  
+console.log(characters[0].describe());
