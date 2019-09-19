@@ -92,6 +92,33 @@ for (let i in obj) {
 
 console.log(...obj);
 
+//#6 cracking the code
+const code = {
+  a: 2,
+  b: 3,
+  c: 4,
+  d: 5
+};
+
+function decodeWords(str) {
+  let newArr = [];
+  let arrStr = str.split(' ');
+
+  for(let i = 0; i < arrStr.length; i++){
+    newArr.push(decode(arrStr[i]));
+  }
+
+  return newArr.join(' ');
+}
+
+decodeWords('craft block argon meter bells brown croon droop');
+
+function decode(word){
+  let firstLetter = word[0];
+  let pos = code[firstLetter];
+  return word[pos - 1];
+}
+
 //#7 Factory functions with LOTR
 function createCharacter(name, nickName, race, origin, attack, defense, weapon) {
     return {
